@@ -48,5 +48,62 @@ namespace Tamagotchi.Tests
       Assert.AreEqual(80, manager.Pets.Sustenance);
       Assert.AreEqual(80, manager.Pets.Quenched);
     }
+
+    [TestMethod]
+    public void IsDead_ReturnsCorrectBoolean_ReturnsFalseWhenAllValuesAbout0 ()
+    {
+      PetManager manager = new();
+      manager.SetPet(1, "Ron");
+
+      Assert.IsFalse(manager.IsDead());
+    }
+
+    [TestMethod]
+    public void IsDead_ReturnsCorrectBoolean_ReturnsTrueWhenEnergyIsAtOrBelow0 ()
+    {
+      PetManager manager = new();
+      manager.SetPet(1, "Ron");
+
+      manager.Pets.Energy = 0;
+      Assert.IsTrue(manager.IsDead());
+      manager.Pets.Energy = -1;
+      Assert.IsTrue(manager.IsDead());
+    }
+
+    [TestMethod]
+    public void IsDead_ReturnsCorrectBoolean_ReturnsTrueWhenContentIsAtOrBelow0 ()
+    {
+      PetManager manager = new();
+      manager.SetPet(1, "Ron");
+
+      manager.Pets.Content = 0;
+      Assert.IsTrue(manager.IsDead());
+      manager.Pets.Content = -1;
+      Assert.IsTrue(manager.IsDead());
+    }
+
+    [TestMethod]
+    public void IsDead_ReturnsCorrectBoolean_ReturnsTrueWhenSustenanceIsAtOrBelow0 ()
+    {
+      PetManager manager = new();
+      manager.SetPet(1, "Ron");
+
+      manager.Pets.Sustenance = 0;
+      Assert.IsTrue(manager.IsDead());
+      manager.Pets.Sustenance = -1;
+      Assert.IsTrue(manager.IsDead());
+    }
+
+    [TestMethod]
+    public void IsDead_ReturnsCorrectBoolean_ReturnsTrueWhenQuenchedIsAtOrBelow0 ()
+    {
+      PetManager manager = new();
+      manager.SetPet(1, "Ron");
+
+      manager.Pets.Quenched = 0;
+      Assert.IsTrue(manager.IsDead());
+      manager.Pets.Quenched = -1;
+      Assert.IsTrue(manager.IsDead());
+    }
   }
 }

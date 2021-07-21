@@ -17,5 +17,14 @@ namespace Tamagotchi.Models
       Pets.Sustenance -= 10;
       Pets.Quenched -= 10;
     }
+
+    public bool IsDead()
+    {
+      foreach (int stat in Pets.Stats) {
+        if (stat <= 0) return true;
+      }
+
+      return false;
+    }    
   }
 }
