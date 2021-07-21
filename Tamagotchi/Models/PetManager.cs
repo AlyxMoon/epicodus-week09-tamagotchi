@@ -1,3 +1,5 @@
+using System;
+
 namespace Tamagotchi.Models
 {
   public class PetManager
@@ -25,6 +27,22 @@ namespace Tamagotchi.Models
       }
 
       return false;
-    }    
+    } 
+    public static void Feed()
+    {
+      Pets.Sustenance = Math.Min(Pets.Sustenance + 10, 200);
+    }
+    public static void Drink()
+    {
+      Pets.Quenched = Math.Min(Pets.Quenched + 10, 200);
+    }
+    public static void Sleep()
+    {
+      Pets.Energy = Math.Min(Pets.Energy + 10, 200);
+    }
+    public static void Attend()
+    {
+      Pets.Content = Math.Min(Pets.Content + 10, 200);
+    }
   }
 }
