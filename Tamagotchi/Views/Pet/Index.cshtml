@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>Your Tamagotchi</h1>
+
+@if (Model != null)
+{
+  <dl>
+    <dt>Name</dt>
+    <dd>@Model.Name</dd>
+
+    <dt>Energy</dt>
+    <dd>@Model.Energy</dd>
+
+    <dt>Content</dt>
+    <dd>@Model.Content</dd>
+
+    <dt>Sustenance</dt>
+    <dd>@Model.Sustenance</dd>
+
+    <dt>Quenched</dt>
+    <dd>@Model.Quenched</dd>
+  </dl>
+}
+else
+{
+  <p>No tamagotchi yet :/</p>
+}

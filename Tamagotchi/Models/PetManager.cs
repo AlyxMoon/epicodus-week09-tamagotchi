@@ -2,15 +2,15 @@ namespace Tamagotchi.Models
 {
   public class PetManager
   {
-    public Pet Pets { get; set; }
+    public static Pet Pets { get; set; }
 
-    public int Id { get; set; }
+    public static int Id { get; set; }
 
-    public void SetPet(int id, string name)
+    public static void SetPet(int id, string name)
     {
       Pets = new(id, name);
     }
-    public void PassTime()
+    public static void PassTime()
     {
       Pets.Energy -= 10;
       Pets.Content -= 10;
@@ -18,7 +18,7 @@ namespace Tamagotchi.Models
       Pets.Quenched -= 10;
     }
 
-    public bool IsDead()
+    public static bool IsDead()
     {
       foreach (int stat in Pets.Stats) {
         if (stat <= 0) return true;
