@@ -10,5 +10,12 @@ namespace Tamagotchi.Models
     {
       Pets = new(id, name);
     }
+    public void PassTime()
+    {
+      Pets.Energy -= 10;
+      Pets.Content -= 10;
+      Pets.Sustenance -= 10;
+      Pets.Quenched -= 10;
+    }
   }
 }

@@ -24,5 +24,29 @@ namespace Tamagotchi.Tests
       Assert.AreEqual(10, manager.Pets.Id);
       Assert.AreEqual("Ron", manager.Pets.Name);
     }
+
+    [TestMethod]
+    public void PassTime_UpdatesPetStats_ReducesEverythingBy10 ()
+    {
+      PetManager manager = new();
+      manager.SetPet(1, "Ron");
+
+      Assert.AreEqual(100, manager.Pets.Energy);
+      Assert.AreEqual(100, manager.Pets.Content);
+      Assert.AreEqual(100, manager.Pets.Sustenance);
+      Assert.AreEqual(100, manager.Pets.Quenched);
+
+      manager.PassTime();
+      Assert.AreEqual(90, manager.Pets.Energy);
+      Assert.AreEqual(90, manager.Pets.Content);
+      Assert.AreEqual(90, manager.Pets.Sustenance);
+      Assert.AreEqual(90, manager.Pets.Quenched);
+
+      manager.PassTime();
+      Assert.AreEqual(80, manager.Pets.Energy);
+      Assert.AreEqual(80, manager.Pets.Content);
+      Assert.AreEqual(80, manager.Pets.Sustenance);
+      Assert.AreEqual(80, manager.Pets.Quenched);
+    }
   }
 }
