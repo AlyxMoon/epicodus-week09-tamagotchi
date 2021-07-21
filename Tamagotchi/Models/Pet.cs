@@ -4,6 +4,7 @@ namespace Tamagotchi.Models
   public class Pet
   {
     public string Name { get; set; }
+    public string Message { get; set; }
     public int Id { get; }
     public int Energy { get; set; }
     public int Content { get; set; }

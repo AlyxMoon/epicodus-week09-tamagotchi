@@ -8,7 +8,6 @@ namespace Tamagotchi.Controllers
     [HttpGet("pets")]
     public ActionResult Index()
     {
-      PetManager.SetPet(1, "Bob");
       return View(PetManager.Pets);
     }
 
@@ -23,6 +22,21 @@ namespace Tamagotchi.Controllers
     public ActionResult New()
     {
       return View("Create");
+    }
+
+    [HttpGet("pets/stats/{prop}")]
+    public ActionResult Patch(string prop) 
+    {
+      string message = prop switch
+      {
+        "Sustenance" => PetManager.Feed(),
+        "Quenched" => PetManager.Drink(),
+        "Content" => PetManager.Attend(),
+        "Energy" => PetManager.Sleep(),
+        _ => "",
+      };
+
+      return RedirectToAction("Index");
     }
   }
 }

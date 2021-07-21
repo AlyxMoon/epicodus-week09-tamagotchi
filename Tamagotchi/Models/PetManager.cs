@@ -28,21 +28,53 @@ namespace Tamagotchi.Models
 
       return false;
     } 
-    public static void Feed()
+    public static string Feed()
     {
+      bool wentOver = Pets.Sustenance + 10 > 200;
+      if (wentOver)
+      {
+        Pets.Message = "I am fed, stop!";
+      }
+
       Pets.Sustenance = Math.Min(Pets.Sustenance + 10, 200);
+
+      return wentOver ? "I am fed, stop!" : "";
     }
-    public static void Drink()
+    public static string Drink()
     {
-      Pets.Quenched = Math.Min(Pets.Quenched + 10, 200);
+      bool wentOver = Pets.Quenched + 10 > 200;
+      if (wentOver)
+      {
+        Pets.Message = "AARRHGGH IM DROWNINGGG glugglug...";
+      }
+
+      Pets.Quenched = Math.Min(Pets.Quenched + 10, 200);      
+
+      return Pets.Message;
     }
-    public static void Sleep()
+    public static string Sleep()
     {
+      bool wentOver = Pets.Energy + 10 > 200;
+      if (wentOver)
+      {
+        Pets.Message = "I don't want to go to bed, stop!";
+      }
+
       Pets.Energy = Math.Min(Pets.Energy + 10, 200);
+
+      return Pets.Message;
     }
-    public static void Attend()
+    public static string Attend()
     {
+      bool wentOver = Pets.Content + 10 > 200;
+      if (wentOver)
+      {
+        Pets.Message = "I want alone time now, stop!";
+      }
+
       Pets.Content = Math.Min(Pets.Content + 10, 200);
+
+      return Pets.Message;
     }
   }
 }
