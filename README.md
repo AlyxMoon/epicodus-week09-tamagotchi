@@ -10,3 +10,25 @@ In the 90's Tamagotchis were popular. They were electronic pets that you could c
 - Create buttons to call methods to:
   - Feed it, play with it, and put it to sleep. These methods should modify the properties of a single Tamagotchi object - such as a food property.
   - Make time pass. Every time you press it, the food, happiness and sleep properties of all Tamagotchis should decrease. If any of these properties get to 0, the Tamagotchi object should report that it's dead.
+
+## Gameplan
+class TamagotchiManager
+  - tamagotchi
+
+  - function passTime()
+    - update tamagotchis
+
+  - function isDead()
+    - check prop levels
+
+class Tamagotchi
+  - string name
+  - int energy (100 -> 0)
+  - int contentedness (100 -> 0)
+  - int sustenence (100 -> 0)
+  - int quenched (100 -> 0)
+
+Page CreateTamagotchi
+Page ShowTamagotchi
+  - that'll show status
+  - have buttons to interact
