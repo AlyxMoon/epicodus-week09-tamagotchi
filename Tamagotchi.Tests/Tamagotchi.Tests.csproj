@@ -9,6 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tamogotchi\Tamogotchi.csproj" />
+    <ProjectReference Include="..\Tamagotchi\Tamagotchi.csproj" />
   </ItemGroup>
 </Project>
