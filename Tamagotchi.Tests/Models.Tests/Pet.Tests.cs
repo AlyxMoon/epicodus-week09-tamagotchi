@@ -4,7 +4,7 @@ using Tamagotchi.Models;
 namespace Tamagotchi.Tests
 {
   [TestClass]
-  public class TamagotchiTests
+  public class PetTests
   {
     [TestMethod]
     public void Constructor_InitializesWithCorrectValues ()
